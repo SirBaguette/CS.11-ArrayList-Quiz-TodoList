@@ -47,9 +47,16 @@ public class TodoList {
      * @return the name of the task with the current highest urgency (a String).
      */
     public String mostUrgent() {
-
-        return null;
-
+        int a = 0;
+        Task ab = tasks.get(0);
+        for (int i = 0; i<tasks.size(); i++) {
+             Task b = tasks.get(i);
+             if (b.getUrgency() > a){
+                 ab = tasks.get(i);
+                 a = ab.getUrgency();
+             }
+        }
+        return ab.getName();
     }
 
     /**
@@ -57,9 +64,12 @@ public class TodoList {
      * @return the average urgency across all tasks (a double).
      */
     public double averageUrgency() {
-
-        return 0.0;
-
+        double ab = 0;
+        for (int i = 0; i < tasks.size(); i++){
+            Task a = tasks.get(i);
+            ab = ab + a.getUrgency();
+        }
+        return ab/tasks.size();
     }
 
     /**
